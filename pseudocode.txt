@@ -1,0 +1,270 @@
+Tic tac Toe Project:
+use .appendChild()
+
+9 arrays total
+
+x, o array, placed on clicks
+	[X,O,X,O]
+
+    have a counter that increments on each push till win and then resets
+
+if counterValue is odd x
+if counterValue is even O 
+
+compare this to a for loop to determine X or O on clicks 
+for ( let i=0;i <= 8; i++){
+	if (i % 2 == 0){
+		i = ‘O';
+			}
+	else {
+	    i = ‘X’;},
+}
+    .classList.remove("d-block");
+    .classList.add("d-none");
+    use d-block d-none add.class / remove.class for X's and O's
+
+
+grid of buttons
+three horizontal arrays
+
+    row1[0,1,2]
+    row2[0,1,2]
+    row3[0,1,2]
+        col 1 [row1[0], row2[0],  row3[0]]
+        col 2 [row1[1], row2[1], row3[1]]
+        col 3 [row1[2], row2[2], row3[2]]
+            diagonal1 [row1[0], row2[1], row3[2]]
+            diagonal2 [row1[2], row2[1], row3[0]]
+
+X = 2
+O = 8
+
+row1Sum = 0
+
+row2Sum = 0
+
+row3Sum = 0
+
+col1Sum = 0
+
+col2Sum = 0
+
+col3Sum = 0
+
+diagonal1Sum = 0
+
+diagonal2Sum = 0
+
+function () {
+
+if (row1Sum == 6 || row2Sum == 6|| row3Sum == 6 || col1Sum == 6 || col2Sum == 6 || col3Sum == 6 || diagonal1Sum == 6 || diagonal2Sum == 6){
+    gameStatus = 'X wins';
+} else
+if (row1Sum == 6 || row2Sum == 24 || row3Sum == 24 || col1Sum == 24 || col2Sum == 24   || col3Sum == 24 || diagonal1Sum == 24|| diagonal2Sum == 24){
+    gameStatus = 'O wins';
+}
+else {
+    gameStatus = 'in Progress'
+}
+return gameStatus;
+},
+
+
+
+
+each ‘X’ value = 2
+	X wins if reduce /sum  () value of any array (OR statements for all arrays) == 6
+each 'O' value= 8
+	O wins if reduce/sum () value of any array (or statements for all arrays) ==24
+
+globals
+	
+objects
+
+events
+
+functions
+
+refer to members within object with this. 
+    refer to functions within members within object with this.bind
+
+dynamic rendering
+
+how to reference index of other arrays in new arrays
+
+createElement
+
+appendElement
+
+
+static rendering
+
+dynamic rendering
+    no innerhtml
+
+generate.
+
+
+
+html
+header
+body
+footer
+
+
+in view
+
+1. whats in the view
+
+
+        container
+            row 
+                header
+            row    
+
+                col
+                    card
+                        row
+                            both players
+                                show thier wins and losses (stretch goal)
+                                show whose turn it is 
+                                who won / tie (ending win conditon first placement)
+                                a key to the players like a map that shows whose turn it is
+                        row for the actual grid
+                            col (acts a a container) - card as well
+                                1st row
+                                    9 cols -size 4
+                                or
+                                3 rows, 
+                                    3 cols - size 4 each row
+                                    tiel (synonymous with col)
+                                        X or O or blank
+
+                            row 
+                                restart button
+                            Modal (show winner or the tile)
+
+
+
+
+
+2. what goes into the model
+            who's turn it is:
+                "x" || "O" stevens
+                count (0, 1, 2, ->n) (jakes)
+                    dual purpose: keep track of game moves
+                        9 moves to end
+                            for tie if other win conditions aren't reached
+                boolean: true / false x === true, but o is false (chances)
+
+            we need to know who won:
+                number based ont he sume of all rows, cols, diag)
+                // use a controller method that would set the sate of this number
+
+                store some number in an array
+                store turns in an array
+                    (0 for no click, 1 for x, -1 for o)
+                    (0 for no click, 2 for x, 8 for o)
+                    ('' for no click, "x" for x, "o" for o)
+                    what the array looks like:
+            
+            [[],[],[] ] - idea 1 (stores 3 each)
+            
+            [], [], [], (3 each)
+            
+            [
+                [0, 1, 2
+                3, 4, 5
+                6, 7, 8]
+            ] - (stores 9) 
+
+
+            // option: create tile class to keep track of all tiles
+            tile: ('' or 0 for no click, 'X' for x, "O' for o)
+                { clicked?
+                    '' || 'x' || "0"
+                    clicked? -can be abstracted
+                    "who clicked" - can be abstracted
+                    where is it  - can be abstracted
+                    bgColor: '' || "x" || "o" -can be extracted maybe
+                    }     
+            [tile , tile, tile,
+            tile, tile, tile
+            tile , tile, tile]
+
+        board: (class)
+
+        {is game complete?
+        all tiles array
+        how many tiles do I have? can be abstracted form langht of array
+        current state of all my tiles}
+
+        Parent / Child relationships
+        parent can have many children and siblings
+        children can only have one parent
+        children can have many siblings
+        grandparents / grandchildren exist too
+
+
+            //too verbose, but it is an option (more for chess)
+
+                { 
+                    turn1: {
+                        tileType: "kinght"
+                        player:"x"
+                        location: [,0,2]
+                    },
+                    turn2:
+                        player:0
+                
+                }     
+
+                grid array [0,1,2,3,4,5,6,7,8,]
+            tiles could have states
+                Boolean: true /false to dictate the tile clickability
+                    tile clickability // controller method
+                        on the finish  of the game, lock the tiles
+                        on any in game click, lock the specific tile
+            restart game function
+            
+
+3. what goes into the controller
+                Check to see if we can start checking. condition or method?
+                win conditions:
+                
+                Check to see if there is a winner
+                    don't have to check winning conditon until all 9 clicks have been made.
+            
+                tie condition:
+
+
+
+
+    
+    initialize
+        pseudocode this 
+        about length of kata
+    helper function, for dynamic rendering
+        generateElement
+    render method
+       select x or 0 (stretch goal)
+
+    tile click listener
+          Check to see if we can start checking. condition (moves> 5)
+                -win condition
+                -check to see if winner or tie
+            set tile clickability for one tile 
+                 should be a unique method so we can use it later
+        on the finish of game, lock tiles
+            switch current player
+    
+    -win condition
+        di we have a winner?
+            -set tile clickability for all tiles
+            -display the final game state
+            -restart click listener
+    -restart button
+        forfeit/auto-win (stretch goal)
+    -lose button (stretch goal)
+    -game history
+    
