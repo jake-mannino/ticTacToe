@@ -1,0 +1,16 @@
+.redbox{
+ border: 1px solid red;
+ min-width: 200px;
+ min-height: 200px;
+ max-height: 200px;
+ max-width: 200px;
+ 
+}
+
+#app {
+    max-width: 800px;
+    min-width: 800px;
+    max-height: 800px;
+    min-height: 800px;
+}
+

@@ -101,10 +101,10 @@ static rendering
 
 dynamic rendering
     no innerhtml
+    useAppendChild ()
+
 
 generate.
-
-
 
 html
 header
@@ -267,4 +267,30 @@ in view
         forfeit/auto-win (stretch goal)
     -lose button (stretch goal)
     -game history
-    
+
+
+
+    object
+        m
+        v
+        c
+
+
+    object
+        m
+        v
+        c 
+
+
+or
+
+    object
+        m
+
+    functions
+        c
+                .addeventlistener
+
+    functions
+        v 
+
