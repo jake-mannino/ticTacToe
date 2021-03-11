@@ -27,19 +27,19 @@ for ( let i=0;i <= 8; i++){
 grid of buttons
 three horizontal arrays
 
-    row1[0,1,2]
-    row2[0,1,2]
-    row3[0,1,2]
-        col 1 [row1[0], row2[0],  row3[0]]
-        col 2 [row1[1], row2[1], row3[1]]
-        col 3 [row1[2], row2[2], row3[2]]
-            diagonal1 [row1[0], row2[1], row3[2]]
-            diagonal2 [row1[2], row2[1], row3[0]]
+    row1 = [0,1,2]
+    row2 = [0,1,2]
+    row3 = [0,1,2]
+        col1 = [row1[0], row2[0],  row3[0]]
+        col2 = [row1[1], row2[1], row3[1]]
+        col3 = [row1[2], row2[2], row3[2]]
+            diagonal1 = [row1[0], row2[1], row3[2]]
+            diagonal2 = [row1[2], row2[1], row3[0]]
 
 X = 2
 O = 8
 
-row1Sum = 0
+row1 = 
 
 row2Sum = 0
 
@@ -55,26 +55,38 @@ diagonal1Sum = 0
 
 diagonal2Sum = 0
 
-function () {
+row1 = [0,1,2]
+row2 = [0,1,2]
+row3 = [0,1,2]
+    col1 = [row1[0], row2[0],  row3[0]]
+    col2 = [row1[1], row2[1], row3[1]]
+    col3 = [row1[2], row2[2], row3[2]]
+        diagonal1 = [row1[0], row2[1], row3[2]]
+        diagonal2 = [row1[2], row2[1], row3[0]]
 
-if (row1Sum == 6 || row2Sum == 6|| row3Sum == 6 || col1Sum == 6 || col2Sum == 6 || col3Sum == 6 || diagonal1Sum == 6 || diagonal2Sum == 6){
+function gameStatus () {
+
+if (sum(row1) == 6 || sum(row2) == 6|| sum(row3) == 6 || sum(col1) == 6 || sum(col2) == 6 || sum(col3) == 6 || sum(diagonal1) == 6 || sum(diagonal2) == 6){
     gameStatus = 'X wins';
-} else
-if (row1Sum == 6 || row2Sum == 24 || row3Sum == 24 || col1Sum == 24 || col2Sum == 24   || col3Sum == 24 || diagonal1Sum == 24|| diagonal2Sum == 24){
+    winCondition = true
+
+} else if (sum(row1) == 24 || sum(row2) == 24|| sum(row3) == 24 || sum(col1) == 24 || sum(col2) == 24 || sum(col3) == 24 || sum(diagonal1) == 24 || sum(diagonal2) == 24){
     gameStatus = 'O wins';
+    winCondition = true
 }
 else {
     gameStatus = 'in Progress'
+    winCondition = false
 }
 return gameStatus;
-},
+}
 
 
 
 
 each ‘X’ value = 2
 	X wins if reduce /sum  () value of any array (OR statements for all arrays) == 6
-each 'O' value= 8
+each 'O' value = 8
 	O wins if reduce/sum () value of any array (or statements for all arrays) ==24
 
 globals
@@ -294,3 +306,6 @@ or
     functions
         v 
 
+stretch goal:
+tic tac toe mindsweeper
+put your x or 0 on the wrong (randomly selected) tile the whole game blows up.
