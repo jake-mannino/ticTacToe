@@ -112,6 +112,8 @@ class Move {
 }
 makeGrid(3, 3);
 
+
+
 //
 // console.log(clickArray);
 // class Grid{
