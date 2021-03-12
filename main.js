@@ -12,33 +12,39 @@ let possibleWins = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5
 function win() {
     for (let i = 0; i < possibleWins.length; i++) {
         let sumArray = []
-        if (clickArray[i] !== null) {
-            for (let k = 0; k < possibleWins[i].length; k++) {
-                if (clickArray[possibleWins[i][k]] !== null) {
-                    sumArray.push(clickArray[possibleWins[i][k]].value);
-                    console.log(clickArray[possibleWins[i][k]]);
+        // if (clickArray[i] !== null) {
+        for (let k = 0; k < possibleWins[i].length; k++) {
+            if (clickArray[possibleWins[i][k]] !== null) {
+                sumArray.push(clickArray[possibleWins[i][k]].value);
+                // console.log(clickArray[possibleWins[i][k]]);
+            }
+            if (sumArray.length == 3) {
+                var sum = sumArray.reduce(reducer);
+                // console.log(sum);
+                if (sum == 6) {
+                    winCondition = true;
+                    gameStatus = "X wins";
+                    return gameStatus
+                } else if (sum == 24) {
+                    winCondition = true;
+                    gameStatus = "O wins";
+                    return gameStatus
+                } else if (sum !== 6 && sum !== 24 && turnNum == 9) {
+                    winCondition = false;
+                    gameStatus = "Tie";
+                    return gameStatus
                 }
-                if (sumArray.length == 3) {
-                    var sum = sumArray.reduce(reducer);
-                    console.log(sum);
-                    if ((sum == null || sum !== 6 || sum !== 24) && turnNum !== 9) {
-                        winCondition = false;
-                        gameStatus = "In progress";
-                    } else if (sum == 6) {
-                        winCondition = true;
-                        gameStatus = "X wins";
-                    } else if (sum == 24) {
-                        winCondition = true;
-                        gameStatus = "O wins";
-                    } else if (turnNum == 9)
-                        winCondition = false;
-                        gameStatus = "Tie";
+                else {
+                    winCondition = false;
+                    gameStatus = "In progress";
+                    // return gameStatus
                 }
             }
-            console.log(gameStatus);
         }
+        // console.log(gameStatus);
+        // }
     }
-   
+
 }
 //make columns classes with clickability member
 function turn(e) {
@@ -47,7 +53,7 @@ function turn(e) {
     Ximg.style = "vertical-align: middle";
     const Oimg = document.createElement("img");
     Oimg.src = "imgs/O.svg";
-    console.log(this);
+    // console.log(this);
     tileClickability = true;
     // function XO () {
     // for (let clickArray[i] = 0; i <= 8; i++) {
@@ -71,10 +77,12 @@ function turn(e) {
     }
     turnNum++;
     win();
-    console.log(clickArray);
+    console.log(gameStatus);
+    // console.log(win());
+    // console.log(clickArray);
 }
 function makeGrid(r, c) {
-    console.log(r, c);
+    // console.log(r, c);
     let z = 0;
     for (let i = 0; i < r; i++) {
         let row = document.createElement("div");
@@ -86,13 +94,13 @@ function makeGrid(r, c) {
             column.id = z;
             column.className = "col-4 py-2 redbox align-items-center justify-content-center vertical-align:middle";
             z++;
-            console.log("in for loop", column, z);
+            // console.log("in for loop", column, z);
             column.addEventListener('click', turn);
             row.appendChild(column);
         }
         app.appendChild(row);
     }
-    console.log(colArray);
+    // console.log(colArray);
 };
 class Move {
     constructor(id, type, value) {
