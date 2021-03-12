@@ -6,7 +6,7 @@ const reducer = (accumulator, currentValue) => accumulator + currentValue;
 let turnNum = 0;
 let clickArray = [null, null, null, null, null, null, null, null, null];
 let colArray = [];
-let gameStatus = "in progress";
+let gameStatus = "In progress";
 let possibleWins = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
 // i[0,1,2]
 function win() {
@@ -15,22 +15,24 @@ function win() {
         if (clickArray[i] !== null) {
             for (let k = 0; k < possibleWins[i].length; k++) {
                 if (clickArray[possibleWins[i][k]] !== null) {
-                    // sumArray.push(clickArray[possibleWins[i][k]].value);
+                    sumArray.push(clickArray[possibleWins[i][k]].value);
                     console.log(clickArray[possibleWins[i][k]]);
                 }
                 if (sumArray.length == 3) {
                     var sum = sumArray.reduce(reducer);
-                    console.log(sum)
-                    if (sum == null || sum !== 6 || sum !== 24) {
+                    console.log(sum);
+                    if ((sum == null || sum !== 6 || sum !== 24) && turnNum !== 9) {
                         winCondition = false;
-                        gameStatus = "in progress";
+                        gameStatus = "In progress";
                     } else if (sum == 6) {
                         winCondition = true;
                         gameStatus = "X wins";
                     } else if (sum == 24) {
                         winCondition = true;
                         gameStatus = "O wins";
-                    }
+                    } else if (turnNum == 9)
+                        winCondition = false;
+                        gameStatus = "Tie";
                 }
             }
             console.log(gameStatus);
