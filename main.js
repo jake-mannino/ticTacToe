@@ -10,10 +10,10 @@ let gameStatus = "in progress";
 let possibleWins = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
 // i[0,1,2]
 function win() {
-    for (let i = 0; i <= clickArray.length; i++) {
+    for (let i = 0; i < possibleWins.length; i++) {
         let sumArray = []
         if (clickArray[i] !== null) {
-            for (let k = 0; k <= possibleWins[i].length; k++) {
+            for (let k = 0; k < possibleWins[i].length; k++) {
                 if (clickArray[possibleWins[i][k]] !== null) {
                     // sumArray.push(clickArray[possibleWins[i][k]].value);
                     console.log(clickArray[possibleWins[i][k]]);
